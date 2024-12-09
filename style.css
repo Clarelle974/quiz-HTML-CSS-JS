@@ -1,5 +1,5 @@
+/* configuration générale */
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&display=swap');
-
 
 :root{
     --primary : #f24841;
@@ -20,29 +20,26 @@
 button {
 all :unset;
 }
+ul {
+    list-style: none;
+}
+
 body {
     background: no-repeat url("./images/arr2.png");
     background-size: 100vh;
     background-position-x: center;
+    background-position-y: center;
     background-attachment: scroll;
+    /* background-size: cover; */
 }
 
 .bagel {
 font-family : "Bagel Fat One", system-ui;
-font-weight: 400;
+font-weight: 1000;
 font-style: normal;
 }
 
-@keyframes giggle {
-    from {
-      transform: rotate(45deg);
-    }
-    to {
-      transform: rotate(-45deg);
-    }
-  }
-  
-
+/* config de la page */
 .choices {
     display: flex;
     flex-direction: column;
@@ -78,7 +75,6 @@ font-style: normal;
     margin-top : 1rem;
     ul{
         display:flex;
-        list-style: none;
         flex-wrap: wrap;
         justify-content: space-around;
         
@@ -93,10 +89,7 @@ font-style: normal;
               &:hover{
                 width : 6rem;
                 animation : giggle 0.5s ease-in-out infinite alternate;
-
               }
             }
         }}
 }
-
-

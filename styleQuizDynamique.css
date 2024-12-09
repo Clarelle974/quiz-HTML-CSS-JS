@@ -1,0 +1,87 @@
+:root{
+    --primary : #f24841;
+    --secundary : #ffb300;
+    --dark : #1e1e1e ;
+    --light : #fefefe;
+    --primarylight : #f05656;
+    --secundarylight : #fecb3e;
+
+}
+.quiz{
+    display: flex;
+    flex-direction: column;
+    img{
+        width : 4rem;
+    }
+    .ninja{
+        position: relative;
+        top : 4rem;
+    }
+    .questions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem;
+        
+        .theme {
+            display: flex;
+            align-items: center;}
+        .card{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                border: solid;
+                border-color: var(--dark);
+                border-radius: 1rem;
+                padding: 0.5rem;
+                background-color: var(--light);
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+
+                }
+                button{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width : 35vw;
+                    align-items: center;
+                    background-color: var(--secundarylight);
+                    box-shadow:3px 3px 3px var(--secundary);
+                    border-radius: 2rem;
+                    padding : 0.2rem;
+                    margin-top : 1rem;
+                    font-size: 0.8rem;
+
+                    &:hover{
+                        width: 37vw;
+                        background-color: var(--secundary);
+                    }
+                
+            }
+        }
+    }
+    .indicators {
+        display: flex;
+        justify-content: space-between;
+        .score, .timer {
+            border-radius: 50%;
+            /* trouver ce qui permet d'être rond */
+            border-style: solid; 
+            text-align: center;
+            margin: 1rem 5rem;
+            font-size: 2rem;
+           }
+        .score{
+        border-color: var(--primarylight);
+        background-color: var(--secundary);
+        color:var(--primary);
+        }
+        .timer{
+            border-color: var(--secundary);
+            background-color: var(--primary);
+            color:var(--secundary);
+            }
+    }
+}
