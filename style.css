@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&display=swap');
+
+
+:root{
+    --primary : #f24841;
+    --secundary : #ffb300;
+    --dark : #1e1e1e ;
+    --light : #fefefe;
+    --primarylight : #f05656;
+    --secundarylight : #fecb3e;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gochi Hand", serif;  font-weight: 400;  font-style: normal;
+    color:var(--color-black)
+  }
+button {
+all :unset;
+}
+body {
+    background: no-repeat url("./images/arr2.png");
+    background-size: 100vh;
+    background-position-x: center;
+    background-attachment: scroll;
+}
+
+.bagel {
+font-family : "Bagel Fat One", system-ui;
+font-weight: 400;
+font-style: normal;
+}
+
+@keyframes giggle {
+    from {
+      transform: rotate(45deg);
+    }
+    to {
+      transform: rotate(-45deg);
+    }
+  }
+  
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    margin :1rem;
+}
+.annunce {
+    display: flex;
+    align-items: center;
+    width:auto;
+    border: solid;
+    border-color: var(--dark);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: var(--light);
+
+    img {
+        height : 25vh;
+    }
+
+    h2{
+        text-align: center;
+        font-size: 1.3rem;
+    }
+}
+
+.themesChoices {
+    display: flex;
+    border: solid;
+    border-color: var(--dark);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: var(--primary);
+    margin-top : 1rem;
+    ul{
+        display:flex;
+        list-style: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+        li{
+            display:flex;
+            color : var(--light);
+            
+            flex-direction: column;
+            text-align: center;
+            img{
+                width : 5rem;
+              &:hover{
+                width : 6rem;
+                animation : giggle 0.5s ease-in-out infinite alternate;
+
+              }
+            }
+        }}
+}
+
+
