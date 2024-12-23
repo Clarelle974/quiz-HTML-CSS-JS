@@ -10,12 +10,12 @@
 .quiz{
     display: flex;
     flex-direction: column;
-    img{
-        width : 4rem;
-    }
+    
     .ninja{
         position: relative;
-        top : 4rem;
+        top : 7rem;
+        width : 10rem;
+        
     }
     .questions {
         display: flex;
@@ -25,7 +25,11 @@
         
         .theme {
             display: flex;
-            align-items: center;}
+            align-items:center;
+            img{
+                width : 6rem;
+            }
+        }
         .card{
                 display: flex;
                 flex-direction: column;
@@ -49,14 +53,17 @@
                     align-items: center;
                     background-color: var(--secundarylight);
                     box-shadow:3px 3px 3px var(--secundary);
-                    border-radius: 2rem;
-                    padding : 0.2rem;
-                    margin-top : 1rem;
+                    border-radius: 1.5rem;
+                    padding : 1rem;
+                    margin-top : 3rem;
                     font-size: 0.8rem;
+                    color : var(--dark);
 
                     &:hover{
                         width: 37vw;
                         background-color: var(--secundary);
+                        font-weight: 600;
+                        font-size:1rem;
                     }
                 
             }
