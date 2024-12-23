@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
     {
         theme: "Hunter x Hunter",
         question: "Quel est le prénom du père de Gon ?",
@@ -121,4 +121,4 @@ const questions = [
     },
     // Ajoutez d'autres questions similaires pour atteindre 40
 ];
-console.log(questions.length);
+
