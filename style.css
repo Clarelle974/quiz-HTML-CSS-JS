@@ -31,7 +31,7 @@ body {
 	background-position-x: center;
 	background-position-y: center;
 	background-attachment: scroll;
-	/* background-size: cover; */
+	background-size: cover;
 }
 
 .bagel {
@@ -86,7 +86,7 @@ body {
 			flex-direction: column;
 			text-align: center;
 			img {
-				width: 5rem;
+				width: 8rem;
 				&:hover {
 					width: 6rem;
 					animation: giggle 0.5s ease-in-out infinite alternate;
