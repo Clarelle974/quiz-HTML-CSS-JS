@@ -9,10 +9,11 @@
 .quiz {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 
 	.ninja {
-		position: relative;
-		top: 7rem;
+		/* position: relative;
+		top: 7rem; */
 		width: 10rem;
 	}
 	.questions {
@@ -27,6 +28,12 @@
 			align-items: center;
 			img {
 				width: 6rem;
+			}
+			h3{
+				font-size: 2rem;
+				color:var(--secundary);
+				
+				
 			}
 		}
 		.card {
@@ -70,12 +77,18 @@
 		justify-content: space-between;
 		.score,
 		.timer {
+			/* flex-grow: 1; */
+			display : flex;
+			justify-content: center;
+			align-items: center;
 			border-radius: 50%;
+			width: 5rem;  /* Définir la largeur du cercle */
+			height: 5rem;
 			/* trouver ce qui permet d'être rond */
 			border-style: solid;
 			text-align: center;
-			margin: 1rem 5rem;
-			font-size: 2rem;
+			margin: 1rem 1rem;
+			font-size: 1rem;
 		}
 		.score {
 			border-color: var(--primarylight);

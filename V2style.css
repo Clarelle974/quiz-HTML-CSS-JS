@@ -32,6 +32,8 @@ body {
 	background-position-y: center;
 	background-attachment: scroll;
 	background-size: cover;
+	position:sticky;
+	
 }
 
 .bagel {

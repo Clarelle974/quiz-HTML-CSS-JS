@@ -3,10 +3,12 @@ import { dataThemesImages } from "./dataImg.js";
 import { funNinjaImages } from "./dataImg.js";
 // l'utilisateur choisit un thème en cliquant sur le pictogramme
 
+let filteredQuestions = [];
+let selectedTheme = ""; 
 function themeSelection() {
 	const themesList = document.querySelectorAll(".themesChoices ul li img");
-	let selectedTheme = ""; //laisser en dehors ou mettre ds fction ?
-	let filteredQuestions = [];
+	// let selectedTheme = ""; //laisser en dehors ou mettre ds fction ?
+	// let filteredQuestions = [];
 	for (let i = 0; i < themesList.length; i++) {
 		themesList[i].addEventListener("click", () => {
 			selectedTheme = themesList[i].dataset.key;
@@ -17,6 +19,8 @@ function themeSelection() {
 					question.theme.includes(selectedTheme),
 				);
 			}
+			index = 0;
+            score = 0;
 			themeQuestionDisplay(selectedTheme);
 			questionsDisplay(filteredQuestions);
 		});
@@ -42,11 +46,12 @@ function themeQuestionDisplay(selectedTheme) {
 //  avec ses propositions de réponse.
 let index = 0;
 let score = 0;
+let timerControl;
 const goodAnswer = "good";
 const badAnswer = "bad";
 
-function questionsDisplay(filteredQuestions) {
-	//AJOUTER UNE FONCTIONNALITE : SI ON CHANGE DE THEME TOUS LES COMPTEURS DONT L'INDEX SE REMETTENT A ZERO
+function questionsDisplay() {
+	//récupération du DOM 
 	const checker = document.getElementById("checker");
 	const questionToDisplay = document.querySelector(".card h3");
 	const answersToDisplay = document.querySelector(".card ul");
@@ -69,8 +74,10 @@ function questionsDisplay(filteredQuestions) {
 		const answerButton = document.createElement("button");
 		answerButton.textContent = choice;
 		answersToDisplay.appendChild(answerButton);
+
 		//si une réponse est cliquée (ou si le temps est écoulé - A FAIRE PLUS TARD), on affiche la question suivante
 		answerButton.addEventListener("click", () => {
+			clearInterval(timerControl);
 			if (answerButton.textContent === filteredQuestions[index].answer) {
 				answersCheckerDisplay(checker, goodAnswer);
 				// total.innerHTML = "";
@@ -79,12 +86,7 @@ function questionsDisplay(filteredQuestions) {
 				answersCheckerDisplay(checker, badAnswer);
 				// total.innerHTML = "";
 			}
-			index++;
-
-			console.log(`index ${index}`);
-			if (index < filteredQuestions.length) {
-				questionsDisplay(filteredQuestions);
-			}
+			nextQuestion(filteredQuestions);
 		});
 	}
 }
@@ -104,18 +106,29 @@ function answersCheckerDisplay(checker, answer) {
 function funNinjaRandom() {
 	return Math.floor(Math.random() * 5);
 }
-//Le timer se lance
+// affichage de la question suivante (sera appelé en cas de réponse ou de temps écoulé)
+function nextQuestion(filteredQuestions) {
+	index++;
+	if (index < filteredQuestions.length) {
+		questionsDisplay(filteredQuestions); // Afficher la question suivante
+	} else {
+		// Fin du quiz si plus de questions
+		const questionToDisplay = document.querySelector(".card h3");
+		questionToDisplay.innerText = "Quiz terminé !";
+	}
+}
+//définition du timer 
 const timerDisplay = document.querySelector(".timer");
-function timer() {
+function timer() {//pas besoin de mettre filteredQuestions en paramètre, il le trouve, sinon ça fait bugger nextQuestions
 	let time = 4;
-	setInterval(() => {
+	timerDisplay.innerText = `${time}`;
+	timerControl = setInterval(() => {
+		time--;
 		timerDisplay.innerText = `${time}`;
-		time = time <= 0 ? 0 : time - 1;
-		// if (time === 0) {
-		//     questionToDisplay++;
-		//     displayQuestion();
-		//      time = 4;
+
+		if (time <= -1) {
+			clearInterval(timerControl); // Arrête le timer à zéro
+			nextQuestion(filteredQuestions);
+		}
 	}, 1000);
 }
-
-// Lorsqu'il n'y a plus de questions, A FAIRE PLUS TARD
