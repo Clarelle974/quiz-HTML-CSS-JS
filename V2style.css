@@ -1,0 +1,140 @@
+/* configuration générale */
+@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gochi+Hand&display=swap");
+
+:root {
+	--primary: #f24841;
+	--secundary: #ffb300;
+	--dark: #1e1e1e;
+	--light: #fefefe;
+	--primarylight: #f05656;
+	--secundarylight: #fecb3e;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Gochi Hand", serif;
+	font-weight: 400;
+	font-style: normal;
+	color: var(--color-black);
+}
+button {
+	all: unset;
+}
+ul {
+	list-style: none;
+}
+
+body {
+	background-color: var(--dark);
+	box-shadow: 1rem 1rem 1rem var(--light);
+}
+
+.bagel {
+	font-family: "Bagel Fat One", system-ui;
+	font-weight: 1000;
+	font-style: normal;
+}
+
+/* configuration de la page */
+.choices {
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+}
+.annunce {
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	border: solid;
+	border-color: var(--dark);
+	border-radius: 1rem;
+	padding: 0.5rem;
+	color: var(--light);
+	padding-bottom: 2rem;
+
+	img {
+		min-height: 20vh;
+		object-fit: cover;
+		animation: fadeIn 1s ease-in;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 1.5rem;
+		position: relative;
+		top: -1rem;
+		text-shadow: 0.1rem 0.1rem 1rem var(--light);
+		animation: fadeIn 5s ease-in;
+	}
+}
+
+.themesChoices {
+	display: flex;
+	justify-content: center;
+	animation: fadeIn 1s ease-in;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	background-color: var(--primary);
+	margin-top: 1rem;
+	box-shadow: 0.5rem 0.5rem 2rem 2.5rem var(--primary);
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		li {
+			display: flex;
+			color: var(--light);
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+
+			img {
+				width: 8rem;
+				animation-name: flo;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+
+				&:hover {
+					width: 9rem;
+					animation: giggle 0.5s ease-in-out infinite alternate;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	background-color: var(--light);
+	box-shadow: 1rem 1rem 1rem 2rem var(--light);
+	h3 {
+		font-size: 4rem;
+		text-align: center;
+		font-weight: 800;
+		color: var(--primary);
+		text-shadow: 0.1rem 0rem 0.1rem var(--primarylight);
+		margin-top: 3rem;
+		animation: flash infinite 2s;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.annunce {
+		flex-direction: row;
+		align-items: center;
+		height: 50vh;
+		padding: 2rem 0 3rem 0;
+		color: var(--light);
+		margin-bottom: 1rem;
+
+		img {
+			height: 70vh;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+	}
+}
