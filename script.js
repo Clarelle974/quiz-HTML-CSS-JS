@@ -3,13 +3,20 @@ import { dataThemesImages } from "./dataImg.js";
 import { funNinjaImages } from "./dataImg.js";
 // l'utilisateur choisit un thème en cliquant sur le pictogramme
 
+//déclaration des variables qui doivent être en dehors des fonctions
 let filteredQuestions = [];
 let selectedTheme = "";
+let index = 0;
+let score = 0;
+let timerControl;
+const goodAnswer = "good";
+const badAnswer = "bad";
+
 const quiz = document.querySelector(".quiz");
+
+//choix du thème de questions
 function themeSelection() {
 	const themesList = document.querySelectorAll(".themesChoices ul li img");
-	// let selectedTheme = ""; //laisser en dehors ou mettre ds fction ?
-	// let filteredQuestions = [];
 	for (let i = 0; i < themesList.length; i++) {
 		themesList[i].addEventListener("click", () => {
 			selectedTheme = themesList[i].dataset.key;
@@ -30,6 +37,8 @@ function themeSelection() {
 		});
 	}
 }
+
+//appel de la fonction :
 themeSelection();
 
 // Le thème choisi et son pictogramme s'affichent dans la div .thème
@@ -47,14 +56,8 @@ function themeQuestionDisplay(selectedTheme) {
 	);
 	themeImg.src = themeDisplay.imgSrc;
 }
-// la première question du thème s'affiche (dans un ordre aléatoire - à faire plus tard),
-//  avec ses propositions de réponse.
-let index = 0;
-let score = 0;
-let timerControl;
-const goodAnswer = "good";
-const badAnswer = "bad";
 
+//affichage des questions et réponses
 function questionsDisplay() {
 	//récupération du DOM
 	const checker = document.getElementById("checker");
@@ -95,6 +98,8 @@ function questionsDisplay() {
 		});
 	}
 }
+
+
 //affichage d'un texte bonne ou mauvaise réponse
 function answersCheckerDisplay(checker, answer) {
 	checker.innerText = "";
@@ -117,6 +122,7 @@ function answersCheckerDisplay(checker, answer) {
 function funNinjaRandom() {
 	return Math.floor(Math.random() * 5);
 }
+
 // affichage de la question suivante (sera appelé en cas de réponse ou de temps écoulé)
 function nextQuestion(filteredQuestions) {
 	index++;
@@ -128,6 +134,8 @@ function nextQuestion(filteredQuestions) {
 		questionToDisplay.innerText = "Quiz terminé !";
 	}
 }
+
+
 //définition du timer
 const timerDisplay = document.querySelector(".timer");
 function timer() {

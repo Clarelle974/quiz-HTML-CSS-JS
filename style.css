@@ -18,16 +18,72 @@
 	font-style: normal;
 	color: var(--color-black);
 }
-button {
+button  {
 	all: unset;
 }
+
 ul {
 	list-style: none;
+}
+a{
+	text-decoration: none;
 }
 
 body {
 	background-color: var(--dark);
 	box-shadow: 1rem 1rem 1rem var(--light);
+}
+
+.accueil {
+	display : flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: center;
+	height : 100vh;
+	width:auto;
+	background-image: url('images/arr2.png') ;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: var(--light);
+
+	img{
+		width : 15rem;
+	}
+	div{
+		display:flex;
+		background-color: var(--secundary);
+		padding:0.2rem;
+		border-radius: 0.2rem;
+		box-shadow: 0.1rem 0.1rem 0.1rem var(--primarylight);
+		text-align: center;
+		width : 30vw;
+		
+		a{
+			font-size: 2rem;
+			margin: 0 auto;
+			&:hover{
+				animation: flash 1s ;
+			}
+			
+			p{
+				animation: flo 5s infinite; /* Combine animation-name, animation-duration et animation-iteration-count */
+    			position: relative; top: -0.7rem;
+    			font-weight: 1000; font-display: swap; text-justify: center;
+   				color: var(--light);
+   				-webkit-text-stroke: 0.05rem var(--primary);
+    			text-shadow: 
+				0rem 0.2rem 0.2rem var(--secundarylight),
+				0rem 0.5rem 0.4rem var(--primarylight),  
+				0rem 1rem 0.8rem var(--secundarylight),  
+				0rem 2rem 1.5rem var(--primarylight);   
+			}
+			
+		}
+		
+			}
+	
+			
 }
 
 .bagel {
@@ -121,6 +177,18 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
+	.accueil{
+		img{
+			width : 30rem;
+		}
+		div{
+			margin-left: auto; /* Pousse la div vers la droite */
+			margin-right: 3rem;
+			p{
+				font-size: 5rem;
+			}
+		}
+	}
 	.annunce {
 		flex-direction: row;
 		align-items: center;
