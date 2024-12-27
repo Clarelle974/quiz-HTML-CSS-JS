@@ -4,7 +4,8 @@ import { funNinjaImages } from "./dataImg.js";
 // l'utilisateur choisit un thème en cliquant sur le pictogramme
 
 let filteredQuestions = [];
-let selectedTheme = ""; 
+let selectedTheme = "";
+const quiz = document.querySelector(".quiz");
 function themeSelection() {
 	const themesList = document.querySelectorAll(".themesChoices ul li img");
 	// let selectedTheme = ""; //laisser en dehors ou mettre ds fction ?
@@ -20,9 +21,12 @@ function themeSelection() {
 				);
 			}
 			index = 0;
-            score = 0;
+			score = 0;
+			clearInterval(timerControl);
+
 			themeQuestionDisplay(selectedTheme);
 			questionsDisplay(filteredQuestions);
+			quiz.style.display = "flex";
 		});
 	}
 }
@@ -30,6 +34,7 @@ themeSelection();
 
 // Le thème choisi et son pictogramme s'affichent dans la div .thème
 function themeQuestionDisplay(selectedTheme) {
+	quiz.style.display = "flex";
 	const themeTitle = document.querySelector(".theme h3");
 	if (selectedTheme === "allThemes") {
 		themeTitle.innerText = "Tous les thèmes";
@@ -51,7 +56,7 @@ const goodAnswer = "good";
 const badAnswer = "bad";
 
 function questionsDisplay() {
-	//récupération du DOM 
+	//récupération du DOM
 	const checker = document.getElementById("checker");
 	const questionToDisplay = document.querySelector(".card h3");
 	const answersToDisplay = document.querySelector(".card ul");
@@ -62,7 +67,7 @@ function questionsDisplay() {
 	scoreDisplay.innerText = `${score} / ${filteredQuestions.length}`;
 	//afficher la question :
 	questionToDisplay.innerText = "";
-	questionToDisplay.innerText = filteredQuestions[index].question;
+	questionToDisplay.innerHTML = `n°${index+1}/${filteredQuestions.length} : <br>${filteredQuestions[index].question}`;
 	answersToDisplay.innerHTML = "";
 	//appel de la fct pour afficher un ninja rigolo random :
 	ninjaDisplay.src = funNinjaImages[funNinjaRandom()];
@@ -100,6 +105,12 @@ function answersCheckerDisplay(checker, answer) {
 		answerChecked.textContent = "Mauvaise réponse !";
 	}
 	checker.appendChild(answerChecked);
+	checker.style.animation = "none"; // Réaplliquer les effets d'animation car le DOM n'est pas rechargé
+	requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
+			checker.style.animation = "fadeOut 1s 1s forwards"; // Réapplique l'animation
+		});
+	});
 }
 
 //L'image d'un ninja rigolo s'affiche de façon aléatoire.
@@ -117,16 +128,17 @@ function nextQuestion(filteredQuestions) {
 		questionToDisplay.innerText = "Quiz terminé !";
 	}
 }
-//définition du timer 
+//définition du timer
 const timerDisplay = document.querySelector(".timer");
-function timer() {//pas besoin de mettre filteredQuestions en paramètre, il le trouve, sinon ça fait bugger nextQuestions
-	let time = 4;
+function timer() {
+	//pas besoin de mettre filteredQuestions en paramètre, il le trouve, sinon ça fait bugger nextQuestions
+	let time = 10;
 	timerDisplay.innerText = `${time}`;
 	timerControl = setInterval(() => {
 		time--;
 		timerDisplay.innerText = `${time}`;
 
-		if (time <= -1) {
+		if (time <= 0) {
 			clearInterval(timerControl); // Arrête le timer à zéro
 			nextQuestion(filteredQuestions);
 		}

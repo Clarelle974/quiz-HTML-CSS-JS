@@ -26,14 +26,8 @@ ul {
 }
 
 body {
-	background: no-repeat url("./images/arr2.png");
-	background-size: 100vh;
-	background-position-x: center;
-	background-position-y: center;
-	background-attachment: scroll;
-	background-size: cover;
-	position:sticky;
-	
+	background-color: var(--dark);
+	box-shadow: 1rem 1rem 1rem var(--light);
 }
 
 .bagel {
@@ -42,7 +36,7 @@ body {
 	font-style: normal;
 }
 
-/* config de la page */
+/* configuration de la page */
 .choices {
 	display: flex;
 	flex-direction: column;
@@ -50,32 +44,41 @@ body {
 }
 .annunce {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	width: auto;
 	border: solid;
 	border-color: var(--dark);
 	border-radius: 1rem;
 	padding: 0.5rem;
-	background-color: var(--light);
+	color: var(--light);
+	padding-bottom: 2rem;
 
 	img {
-		height: 25vh;
+		min-height: 20vh;
+		object-fit: cover;
+		animation: fadeIn 1s ease-in;
 	}
 
 	h2 {
 		text-align: center;
-		font-size: 1.3rem;
+		font-size: 1.5rem;
+		position: relative;
+		top: -1rem;
+		text-shadow: 0.1rem 0.1rem 1rem var(--light);
+		animation: fadeIn 5s ease-in;
 	}
 }
 
 .themesChoices {
 	display: flex;
-	border: solid;
-	border-color: var(--dark);
+	justify-content: center;
+	animation: fadeIn 1s ease-in;
 	border-radius: 1rem;
 	padding: 0.5rem;
 	background-color: var(--primary);
 	margin-top: 1rem;
+	box-shadow: 0.5rem 0.5rem 2rem 2.5rem var(--primary);
+
 	ul {
 		display: flex;
 		flex-wrap: wrap;
@@ -84,13 +87,18 @@ body {
 		li {
 			display: flex;
 			color: var(--light);
-
+			justify-content: center;
 			flex-direction: column;
 			text-align: center;
+
 			img {
 				width: 8rem;
+				animation-name: flo;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+
 				&:hover {
-					width: 6rem;
+					width: 9rem;
 					animation: giggle 0.5s ease-in-out infinite alternate;
 				}
 			}
@@ -98,3 +106,35 @@ body {
 	}
 }
 
+footer {
+	background-color: var(--light);
+	box-shadow: 1rem 1rem 1rem 2rem var(--light);
+	h3 {
+		font-size: 4rem;
+		text-align: center;
+		font-weight: 800;
+		color: var(--primary);
+		text-shadow: 0.1rem 0rem 0.1rem var(--primarylight);
+		margin-top: 3rem;
+		animation: flash infinite 2s;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.annunce {
+		flex-direction: row;
+		align-items: center;
+		height: 50vh;
+		padding: 2rem 0 3rem 0;
+		color: var(--light);
+		margin-bottom: 1rem;
+
+		img {
+			height: 70vh;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+	}
+}
