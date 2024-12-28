@@ -11,6 +11,8 @@ let score = 0;
 let timerControl;
 const goodAnswer = "good";
 const badAnswer = "bad";
+const goodSound = document.getElementById("good");
+const badSound = document.getElementById("bad");
 
 const quiz = document.querySelector(".quiz");
 
@@ -57,7 +59,7 @@ function themeQuestionDisplay(selectedTheme) {
 	themeImg.src = themeDisplay.imgSrc;
 }
 
-//affichage des questions et réponses
+//affichage des questions et réponses, comptage des points
 function questionsDisplay() {
 	//récupération du DOM
 	const checker = document.getElementById("checker");
@@ -106,8 +108,10 @@ function answersCheckerDisplay(checker, answer) {
 	const answerChecked = document.createElement("h3");
 	if (answer === goodAnswer) {
 		answerChecked.textContent = "Bonne réponse !";
+		goodSound.play();
 	} else {
 		answerChecked.textContent = "Mauvaise réponse !";
+		badSound.play();
 	}
 	checker.appendChild(answerChecked);
 	checker.style.animation = "none"; // Réaplliquer les effets d'animation car le DOM n'est pas rechargé
@@ -129,11 +133,16 @@ function nextQuestion(filteredQuestions) {
 	if (index < filteredQuestions.length) {
 		questionsDisplay(filteredQuestions); // Afficher la question suivante
 	} else {
-		// Fin du quiz si plus de questions
-		const questionToDisplay = document.querySelector(".card h3");
-		questionToDisplay.innerText = "Quiz terminé !";
-	}
-}
+		const params = new URLSearchParams({
+            score: score,
+            totalLength: filteredQuestions.length,
+			percentage : score*100/filteredQuestions.length
+        });
+		// window.location.href = `finDeJeu.html?${params.toString()}`;
+		setTimeout(() => {
+            window.location.href = `finDeJeu.html?${params.toString()}`;
+        }, 2000); 
+}}
 
 
 //définition du timer

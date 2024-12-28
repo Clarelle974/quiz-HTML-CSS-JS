@@ -75,6 +75,7 @@
 				width: 37vw;
 				background-color: var(--secundary);
 				font-weight: 600;
+				cursor: pointer;
 			}
 		}
 	}
