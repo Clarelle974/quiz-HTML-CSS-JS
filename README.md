@@ -13,8 +13,8 @@ Les éléments de CSS sont répartis dans 3 fichiers :
 
 Les éléments JS sont répartis dans 6 fichiers : 
 - un fichier dataImg qui répertorie les adresses src des images générées par le script
-- les fichiers clic et clicFin qui gèrent le son des boutons de navigation des pages accueil et résulat,
 - un fichier dataQuestions qui contient le tableau des questions-réponses 
 - un fichier script avec les fonctions et sous-fonctions
 - un fichier scriptFinDeJeu pour l'affichage des résultats sur la page finDeJeu
+- un fichier indexAudio et un fichier audioFin pour gérer les sons de la page accueil et fin de jeu 
 
