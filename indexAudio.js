@@ -6,7 +6,7 @@ document.querySelector(".start a").addEventListener("click", function (event) {
 		// Ajouter un délai d'attente avant de rediriger sinon le son ne se joue pas
 		setTimeout(() => {
 			window.location.href = "quiz.html";
-		}, 1000); // Délai de 1 seconde
+		}, 1000);
 	});
 });
 
