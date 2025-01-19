@@ -72,7 +72,7 @@ function questionsDisplay() {
 	scoreDisplay.innerText = `${score} / ${filteredQuestions.length}`;
 	//afficher la question :
 	questionToDisplay.innerText = "";
-	questionToDisplay.innerHTML = `n°${index+1}/${filteredQuestions.length} : <br>${filteredQuestions[index].question}`;
+	questionToDisplay.innerHTML = `n°${index + 1}/${filteredQuestions.length} : <br>${filteredQuestions[index].question}`;
 	answersToDisplay.innerHTML = "";
 	//appel de la fct pour afficher un ninja rigolo random :
 	ninjaDisplay.src = funNinjaImages[funNinjaRandom()];
@@ -101,8 +101,7 @@ function questionsDisplay() {
 	}
 }
 
-
-//affichage d'un texte bonne ou mauvaise réponse
+//affichage d'un texte bonne ou mauvaise réponse, et son associé
 function answersCheckerDisplay(checker, answer) {
 	checker.innerText = "";
 	const answerChecked = document.createElement("h3");
@@ -134,16 +133,16 @@ function nextQuestion(filteredQuestions) {
 		questionsDisplay(filteredQuestions); // Afficher la question suivante
 	} else {
 		const params = new URLSearchParams({
-            score: score,
-            totalLength: filteredQuestions.length,
-			percentage : score*100/filteredQuestions.length
-        });
+			score: score,
+			totalLength: filteredQuestions.length,
+			percentage: (score * 100) / filteredQuestions.length,
+		});
 		// window.location.href = `finDeJeu.html?${params.toString()}`;
 		setTimeout(() => {
-            window.location.href = `finDeJeu.html?${params.toString()}`;
-        }, 2000); 
-}}
-
+			window.location.href = `finDeJeu.html?${params.toString()}`;
+		}, 2000);
+	}
+}
 
 //définition du timer
 const timerDisplay = document.querySelector(".timer");
