@@ -131,7 +131,7 @@ body {
 	animation: fadeIn 2s;
 
 	img {
-		min-height: 20vh;
+		height: 50%;
 		object-fit: cover;
 		animation: fadeIn 1s ease-in;
 	}
