@@ -1,17 +1,10 @@
 /* configuration des éléments gérés par js */
-:root {
-	--primary: #f24841;
-	--secundary: #ffb300;
-	--dark: #1e1e1e;
-	--light: #fefefe;
-	--primarylight: #f05656;
-	--secundarylight: #fecb3e;
-}
 
 .quiz {
 	display: none;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom:3rem;
 
 	.ninja {
 		width: 5rem;
@@ -33,12 +26,13 @@
 				width: 6rem;
 			}
 			h3 {
-				font-size: 0.8rem;
+				font-size: 2rem;
 				color: var(--light);
 			}
 		}
 		.card {
 			display: flex;
+			min-width: 90vw;
 			flex-direction: column;
 			text-align: center;
 			border-radius: 1rem;
@@ -46,29 +40,29 @@
 			background-color: var(--light);
 			opacity: 0.9;
 			box-shadow: 0.2rem 0.2rem 0.1rem 0.2rem var(--light);
+			h3{
+				font-size: 1.5rem;
+			}
 			ul {
 				display: flex;
-				flex-wrap: wrap;
 				justify-content: space-around;
-				display: grid;
-				grid-template-columns: 50% 50%;
-				grid-template-rows: 50% 50%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 				gap: 0.5rem;
 			}
 		}
 		button {
 			display: flex;
-			flex-wrap: wrap;
 			justify-content: center;
-			width: 35vw;
+			width: 100%;
 			align-items: center;
 			background-color: var(--secundarylight);
 			box-shadow: 3px 6px 6px var(--secundary);
 			border-radius: 1.5rem;
 			padding: 0.2rem;
-			margin-top: 0.5rem;
-			margin-bottom: 0.5rem;
-			font-size: 0.8rem;
+			margin : 1rem 0.5rem 1rem 0.5rem;
+			font-size: 1.5rem;
 			color: var(--dark);
 
 			&:hover {
@@ -115,14 +109,15 @@
 	}
 }
 @media only screen and (min-width: 768px) {
-	.theme h3 {
-		font-size: 2rem !important ;
-		color :aqua
+	.quiz .questions .card ul {
+		display: grid ;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+		gap: 1rem;
 	}
-	.card h3{
-			font-size: 1.2rem !important ;
-		}
-	.card button{
-			font-size: 1.2rem !important ;
-		}
+	
+	.quiz .questions .card button {
+			width:90%;
+			margin: 1rem auto;
+	}
 	}

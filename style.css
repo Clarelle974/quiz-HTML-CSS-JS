@@ -17,6 +17,7 @@
 	font-weight: 400;
 	font-style: normal;
 	color: var(--color-black);
+	
 }
 button {
 	all: unset;
@@ -31,16 +32,17 @@ a {
 
 body {
 	background-color: var(--dark);
-	box-shadow: 1rem 1rem 1rem var(--light);
 }
 
 .accueil {
 	display: flex;
+	margin : 2rem;
+	min-height: 80vh;
+	border-radius: 30px;
+	border: #f24841 solid 1rem;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
-	width: auto;
 	background-image: url("images/arr2.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -49,15 +51,14 @@ body {
 	animation: fadeIn 2s;
 
 	img {
-		width: 15rem;
+		width: 40vw;
 	}
 	div {
 		display: flex;
-		padding: 0.2rem;
+		padding: 0.2rem 3rem 0.2rem 3rem;
 		border-radius: 2rem;
 		box-shadow: 0.1rem 0.1rem 0.1rem var(--primarylight);
 		text-align: center;
-		width: 40vw;
 
 		a {
 			margin: 0 auto;
@@ -86,6 +87,7 @@ body {
 	.start {
 		background-color: var(--secundary);
 		font-size: 1.8rem;
+		margin-bottom : 1rem;
 	}
 	.endResults {
 		font-size: 1rem;
@@ -94,12 +96,12 @@ body {
 		background-color: var(--primary);
 		color: var(--light);
 		margin-bottom: 1rem;
-		width: 60vw;
+		width: 40vw;
 		animation: fadeIn 1s;
 	}
 	.fin {
 		font-size: 1rem;
-		width: 30vw;
+		padding : 0.2rem 3rem 0.2rem 3rem;
 		background-color: var(--secundary);
 	}
 	.endImg {
@@ -111,96 +113,6 @@ body {
 	font-family: "Bagel Fat One", system-ui;
 	font-weight: 1000;
 	font-style: normal;
-}
-
-/* configuration de la page */
-.choices {
-	display: flex;
-	flex-direction: column;
-	margin: 1rem;
-}
-.annunce {
-	display: flex;
-	flex-direction: column;
-	width: auto;
-	border-color: var(--dark);
-	border-radius: 1rem;
-	padding: 0.5rem;
-	color: var(--light);
-	padding-bottom: 2rem;
-	animation: fadeIn 2s;
-
-	img {
-		height: 50%;
-		object-fit: cover;
-		animation: fadeIn 1s ease-in;
-	}
-
-	h2 {
-		text-align: center;
-		font-size: 1.5rem;
-		position: relative;
-		top: -1rem;
-		text-shadow: 0.1rem 0.1rem 1rem var(--light);
-		animation: fadeIn 5s ease-in;
-	}
-}
-
-.themesChoices {
-	display: flex;
-	justify-content: center;
-	animation: fadeIn 1s ease-in;
-	border-radius: 1rem;
-	padding: 0.5rem;
-	background-color: var(--primary);
-	margin-top: 1rem;
-	box-shadow: 0.5rem 0.5rem 2rem 2.5rem var(--primary);
-
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-
-		li {
-			display: flex;
-			color: var(--light);
-			justify-content: center;
-			flex-direction: column;
-			text-align: center;
-
-			img {
-				width: 8rem;
-				animation-name: flo;
-				animation-duration: 5s;
-				animation-iteration-count: infinite;
-
-				&:hover {
-					width: 9rem;
-					animation: giggle 0.5s ease-in-out infinite alternate;
-				}
-			}
-		}
-	}
-}
-
-footer {
-	background-color: var(--light);
-	box-shadow: 1rem 1rem 1rem 2rem var(--light);
-	h3 {
-		font-size: 4rem;
-		text-align: center;
-		font-weight: 800;
-		color: var(--primary);
-		text-shadow: 0.1rem 0rem 0.1rem var(--primarylight);
-		margin-top: 3rem;
-		animation: flash infinite 2s;
-	}
-	p {
-		color: var(--dark);
-		text-align: center;
-		opacity: 0.8;
-		margin-bottom: 1rem;
-	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -232,21 +144,7 @@ footer {
 			font-size: 2rem;
 		}
 	}
-
-	.annunce {
-		flex-direction: row;
-		align-items: center;
-		height: 50vh;
-		padding: 2rem 0 3rem 0;
-		color: var(--light);
-		margin-bottom: 1rem;
-
-		img {
-			height: 70vh;
-		}
-
 		h2 {
 			font-size: 3rem;
 		}
 	}
-}

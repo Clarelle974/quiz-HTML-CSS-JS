@@ -148,7 +148,7 @@ function nextQuestion(filteredQuestions) {
 const timerDisplay = document.querySelector(".timer");
 function timer() {
 	//pas besoin de mettre filteredQuestions en paramètre, il le trouve, sinon ça fait bugger nextQuestions
-	let time = 10;
+	let time = 100;
 	timerDisplay.innerText = `${time}`;
 	timerControl = setInterval(() => {
 		time--;
