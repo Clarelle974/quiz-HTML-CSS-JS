@@ -99,6 +99,7 @@ footer {
 	}
 	.annunce {
 		flex-direction: row;
+		justify-content: center;
 		align-items: center;
 		max-width: 80%;
 		padding: 2rem 0 3rem 0;
