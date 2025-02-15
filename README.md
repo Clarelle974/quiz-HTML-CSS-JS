@@ -1,14 +1,16 @@
 Création d'un quizz en HTML, CSS et JS Vanilla 
 Sixième semaine de formation 
+******** ceci est un support d'apprentissage *********
 
 Le site est articulé en 3 pages html : 
 - une page accueil pour accéder au quiz 
 - une page quiz
 - une page résultats (finDeJeu)
 
-Les éléments de CSS sont répartis dans 3 fichiers : 
+Les éléments de CSS sont répartis dans 4 fichiers : 
 - un fichier animations, qui centralise les keyframes 
-- un fichier style, qui gère les éléments fixes des pages, et les éléments des pages accueil et finDeJeu
+- un fichier style, qui gère les éléments des pages accueil et finDeJeu
+- un fichier styleQuiz, pour les éléments fixes de la page Quiz
 - un fichier styleQuizDynamique, qui met en forme les éléments modifiés par JS
 
 Les éléments JS sont répartis dans 6 fichiers : 
