@@ -1,12 +1,10 @@
-document.querySelector(".fin a").addEventListener("click", function (event) {
-	event.preventDefault(); // Empêche la navigation immédiate
-
+document.querySelector(".fin a").addEventListener("click", (event) => {
+	event.preventDefault();
 	const audio = document.getElementById("clic");
 
 	audio.play().then(() => {
-		// Ajouter un délai d'attente avant de rediriger sinon le son ne se joue pas
 		setTimeout(() => {
 			window.location.href = "quiz.html";
-		}, 1000); // Délai de 1 seconde
+		}, 500);
 	});
 });
